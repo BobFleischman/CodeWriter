@@ -93,7 +93,7 @@ export class GeneratorComponent implements OnInit {
     `;
   }
 
-  generateHTMLCode(obj: ItemObject): string {
+  generateHTMLCodeV1(obj: ItemObject): string {
     let result = '';
     const top = `<h2>${obj.label}</h2>
     <form [formGroup]='dataform' (ngSubmit)='onSubmit(userform.value)'>
@@ -120,7 +120,48 @@ export class GeneratorComponent implements OnInit {
     return result;
   }
 
+  generateHTMLCode(obj: ItemObject): string {
+    let result = '';
+    const top = `<h2>${obj.label}</h2>
+    <form [formGroup]='dataform' (ngSubmit)='onSubmit(userform.value)'>
+    <p-panel header='${obj.name}'>
+        <div class='ui-grid 'p-responsive 'p-pad ui-fluid' style='margin: 10px 0px'>\n`;
+  const buttonRow = `           <div class='p-row'>
+<div class='p-col-2'></div>
+<div class='p-col-6'>
+    <button pButton type='submit' label='Submit' [disabled]='!dataform.valid'></button>
+</div>
+<div class='p-col-4'></div>
+</div>`;
+    const bottom = `        </div>
+    </p-panel>
+</form>\n`;
+    obj.fields.forEach(f => {
+      // console.log(this.generateHTMLCodeRow(f));
+      result = result + this.generateHTMLCodeRow(f);
+    });
+    result = top + result + buttonRow + bottom;
+    console.log('XXXXXXXXXXXXXXXXX: ' + result);
+    // var re = /[\n]/g;
+    // result = result.replace(re, '<br \>');
+    return result;
+  }
   generateHTMLCodeRow(f: Field): string {
+    const line = `<div class='p-row'>
+    <div class='p-col-2'>
+        ${f.label} *:
+    </div>
+    <div class='p-col-6'>` + this.getInputType(f) + `
+
+    </div>
+    <div class='p-col-4'>
+        <p-message severity='error' text='${f.label} is required' *ngIf="!dataform.controls['${f.name}'].valid&&dataform.controls['${f.name}'].dirty"></p-message>
+    </div>
+</div>\n`;
+    return line;
+  }
+
+  generateHTMLCodeRowV1(f: Field): string {
     const line = `<div class='ui-grid-row'>
     <div class='ui-grid-col-2'>
         ${f.label} *:
@@ -134,7 +175,6 @@ export class GeneratorComponent implements OnInit {
 </div>\n`;
     return line;
   }
-
   getInputType(f: Field): string {
     const result = '';
     const ty = f.formFieldType;
