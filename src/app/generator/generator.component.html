@@ -1,0 +1,24 @@
+<p>
+  generator works!
+  {{item | json}}  
+</p>
+<hr>
+<h2>Class</h2>
+<pre>
+  {{generateFieldList(item)}}
+</pre>
+<hr>
+<h3>Imports</h3>
+<pre>
+  {{generateImportCode(item)}}
+</pre>
+<h3>Component</h3>
+<pre>
+  {{generateComponentCode(item)}}
+</pre>
+<hr>
+<h3>HTML</h3>
+<pre>
+  {{generateHTMLCode(item)}}
+</pre>
+<app-person [firstData]='item'></app-person>
