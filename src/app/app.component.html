@@ -1,4 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<p-tabView>
+  <p-tabPanel header="NPM Installs">
+    <h2>NPM Installs</h2>
+    <pre>
+      npm install primeng --save
+      npm install primeicons --save
+      npm install primeflex --save
+      npm install @angular/animations -- save
+    </pre>
+  </p-tabPanel>
+  <p-tabPanel header="App Module Imports">
+    <h2>App Module Imports</h2>
+    <pre>
+        import {{ '{' }}BrowserAnimationsModule{{ '}' }} from '@angular/platform-browser/animations';
+        import {{ '{' }}FormsModule, ReactiveFormsModule {{ '}' }} from '@angular/forms';
+        import {{ '{' }}MessageModule {{ '}' }} from 'primeng/message';
+        import {{ '{' }}CheckboxModule{{ '}' }} from 'primeng/checkbox';
+        import {{ '{' }}CalendarModule{{ '}' }} from 'primeng/calendar';
+        import {{ '{' }}PanelModule{{ '}' }} from 'primeng/panel';
+        import {{ '{' }}TabViewModule{{ '}' }} from 'primeng/tabview';
+    </pre>
+    <h2>For Import Section</h2>
+    <pre>
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MessageModule,
+        CheckboxModule,
+        CalendarModule,
+        PanelModule,
+        TabViewModule
+    </pre>
+  </p-tabPanel>
+  <p-tabPanel header="angular.json">
+    <pre>
+    "styles": [
+    "node_modules/primeflex/primeflex.css",
+    "node_modules/primeicons/primeicons.css",
+    "node_modules/primeng/resources/themes/nova-light/theme.css",
+    "node_modules/primeng/resources/primeng.min.css",
+    //...
+    ]</pre>
+  </p-tabPanel>
+</p-tabView>
 <app-generator></app-generator>
-
-<router-outlet></router-outlet>

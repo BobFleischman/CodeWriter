@@ -5,6 +5,8 @@ export class Field {
     name: string;
     type: Types; // should be enumeration number, string, boolean, date. any
     label: string;
+    placeholder = "";
+    required = false;
     validations: string;
     formFieldType: InputTypes;
 

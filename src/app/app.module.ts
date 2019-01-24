@@ -12,6 +12,7 @@ import {MessageModule } from 'primeng/message'
 import {CheckboxModule} from 'primeng/checkbox';
 import {CalendarModule} from 'primeng/calendar';
 import {PanelModule} from 'primeng/panel';
+import {TabViewModule} from 'primeng/tabview';
 
 @NgModule({
   declarations: [
@@ -21,14 +22,15 @@ import {PanelModule} from 'primeng/panel';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
     MessageModule,
     CheckboxModule,
     CalendarModule,
-    PanelModule 
+    PanelModule,
+    TabViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]
