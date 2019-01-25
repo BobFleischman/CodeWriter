@@ -1,0 +1,61 @@
+{
+  "fields": [{
+    "placeholder": "Field Name",
+    "required": true,
+    "name": "name",
+    "type": "string",
+    "label": "Field Name",
+    "validations": "",
+    "formFieldType": 0
+  }, {
+    "placeholder": "",
+    "required": true,
+    "name": "label",
+    "type": "string",
+    "label": "Label for Forms",
+    "validations": "",
+    "formFieldType": 0
+  }, {
+    "placeholder": "text to user in the placehold attribute",
+    "required": false,
+    "name": "placeholder",
+    "type": "string",
+    "label": "Placeholder Text",
+    "validations": "",
+    "formFieldType": 0
+  }, {
+    "placeholder": "Is this field required on the form",
+    "required": true,
+    "name": "required",
+    "type": "boolean",
+    "label": "Required",
+    "validations": "",
+    "formFieldType": 5
+  }, {
+    "placeholder": "string, Date, number, boolean",
+    "required": true,
+    "name": "type",
+    "type": "string",
+    "label": "Data Type",
+    "validations": "",
+    "formFieldType": 0
+  }, {
+    "placeholder": "Validation String (Not currently used)",
+    "required": false,
+    "name": "validations",
+    "type": "string",
+    "label": "Validations",
+    "validations": "",
+    "formFieldType": 0
+  }, {
+    "placeholder": "INPUT, TEXTAREA, DATE, SELECT, PASSWORD, CHECKBOX",
+    "required": true,
+    "name": "formFieldType",
+    "type": "string",
+    "label": "Form Field Type",
+    "validations": "",
+    "formFieldType": 0
+  }],
+  "name": "ObjectTemplate",
+  "label": "Object Template"
+}

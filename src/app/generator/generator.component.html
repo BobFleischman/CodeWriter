@@ -1,28 +1,46 @@
-<p>
-  generator works!
-  {{item | json}}
-</p>
-<pre>
-ng g class models/{{item.name}}
-ng g component components/{{item.name}}
-</pre>
-<hr>
-<h2>Class</h2>
-<pre>
-  {{generateFieldList(item)}}
-</pre>
-<hr>
-<h3>Imports</h3>
-<pre>
-  {{generateImportCode(item)}}
-</pre>
-<h3>Component</h3>
-<pre>
+<p-tabView>
+  <p-tabPanel header="JSON">
+    <h2>JSON</h2>
+    <pre>
+     {{item | json}}
+    </pre>
+  </p-tabPanel>
+  <p-tabPanel header="Generate">
+    <h2>Generate This</h2>
+    <pre>
+      ng g class models/{{item.name}}
+      ng g component components/{{item.name}}
+
+    </pre>
+  </p-tabPanel>
+  <p-tabPanel header="Field List">
+      <h2>For the Object</h2>
+      <pre>
+        {{generateFieldList(item)}}
+      </pre>
+    </p-tabPanel>
+    <p-tabPanel header="Import This">
+    <h2>Import</h2>
+    <pre>
+      {{generateImportCode(item)}}
+    </pre>
+  </p-tabPanel>
+  <p-tabPanel header="Component">
+    <h3>Component</h3>
+    <pre>
   {{generateComponentCode(item)}}
 </pre>
-<hr>
-<h3>HTML</h3>
-<pre>
-  {{generateHTMLCode(item)}}
+  </p-tabPanel>
+  <p-tabPanel header="HTML">
+    <h3>HTML</h3>
+    <pre>
+    {{generateHTMLCode(item)}}
 </pre>
-<app-person [firstData]='item'></app-person>
+  </p-tabPanel>
+  <p-tabPanel header="CSS">
+      <h3>CSS</h3>
+      <pre>
+      {{getCSS()}}
+  </pre>
+    </p-tabPanel>
+  </p-tabView>

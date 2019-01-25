@@ -1,0 +1,45 @@
+{
+    "fields": [{
+        "placeholder": "Enter Nickname if applicable",
+        "required": true,
+        "name": "first",
+        "type": "string",
+        "label": "First Name",
+        "validations": "",
+        "formFieldType": 0
+    }, {
+        "placeholder": "",
+        "required": false,
+        "name": "last",
+        "type": "string",
+        "label": "Last Name",
+        "validations": "",
+        "formFieldType": 0
+    }, {
+        "placeholder": "",
+        "required": true,
+        "name": "admin",
+        "type": "boolean",
+        "label": "Administrator",
+        "validations": "",
+        "formFieldType": 5
+    }, {
+        "placeholder": "",
+        "required": false,
+        "name": "birthdate",
+        "type": "date",
+        "label": "Birthday",
+        "validations": "",
+        "formFieldType": 2
+    }, {
+        "placeholder": "",
+        "required": false,
+        "name": "comment",
+        "type": "string",
+        "label": "Comments",
+        "validations": "",
+        "formFieldType": 1
+    }],
+    "name": "Person",
+    "label": "User"
+}
