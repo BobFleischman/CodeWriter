@@ -5,8 +5,10 @@ export class Field {
     name: string;
     type: Types; // should be enumeration number, string, boolean, date. any
     label: string;
-    placeholder = "";
+    placeholder = '';
     required = false;
+    regularexpression: string;
+    regularexpressionmsg: string;
     validations: string;
     formFieldType: InputTypes;
 

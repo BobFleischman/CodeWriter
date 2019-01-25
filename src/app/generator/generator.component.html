@@ -1,13 +1,13 @@
 <p-tabView>
   <p-tabPanel header="JSON">
     <h2>JSON</h2>
-    <pre>
+    <pre class="prettyprint lang-json">
      {{item | json}}
     </pre>
   </p-tabPanel>
   <p-tabPanel header="Generate">
     <h2>Generate This</h2>
-    <pre>
+    <pre class="prettyprint">
       ng g class models/{{item.name}}
       ng g component components/{{item.name}}
 
@@ -15,31 +15,31 @@
   </p-tabPanel>
   <p-tabPanel header="Field List">
       <h2>For the Object</h2>
-      <pre>
+      <pre class="prettyprint">
         {{generateFieldList(item)}}
       </pre>
     </p-tabPanel>
     <p-tabPanel header="Import This">
     <h2>Import</h2>
-    <pre>
+    <pre class="prettyprint">
       {{generateImportCode(item)}}
     </pre>
   </p-tabPanel>
   <p-tabPanel header="Component">
     <h3>Component</h3>
-    <pre>
+    <pre class="prettyprint lang-js">
   {{generateComponentCode(item)}}
 </pre>
   </p-tabPanel>
   <p-tabPanel header="HTML">
     <h3>HTML</h3>
-    <pre>
+    <pre class="prettyprint lang-html">
     {{generateHTMLCode(item)}}
 </pre>
   </p-tabPanel>
   <p-tabPanel header="CSS">
       <h3>CSS</h3>
-      <pre>
+      <pre class="prettyprint">
       {{getCSS()}}
   </pre>
     </p-tabPanel>

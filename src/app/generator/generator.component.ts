@@ -5,7 +5,6 @@ import { Types } from '../models/types.enum';
 import { InputTypes } from '../models/input-types.enum';
 import { ViewEncapsulation } from '@angular/compiler/src/core';
 
-
 @Component({
   selector: 'app-generator',
   templateUrl: './generator.component.html',
@@ -16,64 +15,108 @@ export class GeneratorComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.item = JSON.parse(`{
-      "fields": [{
-        "placeholder": "Field Name",
-        "required": true,
-        "name": "name",
-        "type": "string",
-        "label": "Field Name",
-        "validations": "",
-        "formFieldType": 0
-      }, {
-        "placeholder": "",
-        "required": true,
-        "name": "label",
-        "type": "string",
-        "label": "Label for Forms",
-        "validations": "",
-        "formFieldType": 0
-      }, {
-        "placeholder": "text to user in the placehold attribute",
-        "required": false,
-        "name": "placeholder",
-        "type": "string",
-        "label": "Placeholder Text",
-        "validations": "",
-        "formFieldType": 0
-      }, {
-        "placeholder": "Is this field required on the form",
-        "required": true,
-        "name": "required",
-        "type": "boolean",
-        "label": "Required",
-        "validations": "",
-        "formFieldType": 5
-      }, {
-        "placeholder": "string, Date, number, boolean",
-        "required": true,
-        "name": "type",
-        "type": "string",
-        "label": "Data Type",
-        "validations": "",
-        "formFieldType": 0
-      }, {
-        "placeholder": "Validation String (Not currently used)",
-        "required": false,
-        "name": "validations",
-        "type": "string",
-        "label": "Validations",
-        "validations": "",
-        "formFieldType": 0
-      }, {
-        "placeholder": "INPUT, TEXTAREA, DATE, SELECT, PASSWORD, CHECKBOX",
-        "required": true,
-        "name": "formFieldType",
-        "type": "string",
-        "label": "Form Field Type",
-        "validations": "",
-        "formFieldType": 0
-      }],
+    this.item = JSON.parse(`    {
+      "fields": [
+        {
+          "placeholder": "Field Name",
+          "required": true,
+          "name": "name",
+          "type": "string",
+          "label": "Field Name",
+          "regularexpression": "[a-z_]+$",
+          "regularexpressionmsg": "Must be lower case and no spaces",
+          "validations": "",
+          "formFieldType": 0
+        },
+        {
+          "placeholder": "",
+          "required": true,
+          "name": "label",
+          "type": "string",
+          "label": "Label for Forms",
+          "regularexpression": "",
+          "regularexpressionmsg": "",
+          "validations": "",
+          "formFieldType": 0
+        },
+        {
+          "placeholder": "text to user in the placehold attribute",
+          "required": false,
+          "name": "placeholder",
+          "type": "string",
+          "label": "Placeholder Text",
+          "regularexpression": "",
+          "regularexpressionmsg": "",
+          "validations": "",
+          "formFieldType": 0
+        },
+        {
+          "placeholder": "Is this field required on the form",
+          "required": true,
+          "name": "required",
+          "type": "boolean",
+          "label": "Required",
+          "regularexpression": "",
+          "regularexpressionmsg": "",
+          "validations": "",
+          "formFieldType": 5
+        },
+        {
+          "placeholder": "Validation Regular Expression",
+          "required": false,
+          "name": "regularexpression",
+          "type": "string",
+          "label": "Regular Expression For Validation",
+          "regularexpression": "",
+          "regularexpressionmsg": "",
+          "validations": "",
+          "formFieldType": 0
+        },
+        {
+          "placeholder": "Regular Expression Error Message",
+          "required": false,
+          "name": "regularexpressionmsg",
+          "type": "string",
+          "label": "RegExError Message",
+          "regularexpression": "",
+          "regularexpressionmsg": "",
+          "validations": "",
+          "formFieldType": 0
+        },
+        {
+          "placeholder": "string, Date, number, boolean",
+          "required": true,
+          "name": "type",
+          "type": "string",
+          "label": "Data Type",
+          "regularexpression": "",
+          "regularexpressionmsg": "",
+          "validations": "",
+          "formFieldType": 0
+        },
+        {
+          "placeholder": "Validation String (Not currently used)",
+          "required": false,
+          "name": "validations",
+          "type": "string",
+          "label": "Validations",
+          "regularexpression": "",
+          "regularexpressionmsg": "",
+          "validations": "",
+          "formFieldType": 0
+        },
+        {
+          "placeholder": "INPUT, TEXTAREA, DATE, SELECT, PASSWORD, CHECKBOX",
+          "required": true,
+          "name": "formFieldType",
+          "type": "string",
+          "label": "Form Field Type",
+          "regularexpression": "",
+          "regularexpressionmsg": "",
+          "validations": "",
+          "formFieldType": 0
+        }
+      ],
       "name": "ObjectTemplate",
       "label": "Object Template"
     }
@@ -122,8 +165,10 @@ export class GeneratorComponent implements OnInit {
     let result = '';
     result = `dataform: FormGroup;
 
+    ${this.getValidationMessages(obj)}
+
     @Input()
-    ${obj.label}: ${obj.name};
+    ${obj.name.toLowerCase()}: ${obj.name};
 
     constructor(private fb: FormBuilder) {}
 
@@ -142,17 +187,55 @@ export class GeneratorComponent implements OnInit {
     return result;
   }
 
+  getValidationMessages(obj: ItemObject) {
+    let result = `account_validation_messages = {`;
+    const msgs = [];
+    obj.fields.forEach(f => {
+      if (f.required || f.regularexpression.length > 0) {
+        const lines = [];
+        let line = `${f.name}: [`;
+        if (f.required) {
+          lines.push(`{ type: 'required', message: '${f.label} is required'}`);
+        }
+        if (f.regularexpression.length > 0) {
+          lines.push(
+            `{ type: 'pattern', message: '${f.label} must be ${
+              f.regularexpressionmsg
+            }'}`
+          );
+        }
+        line = line + lines.join(',\n') + `]`;
+        msgs.push(line);
+      }
+    });
+    result = result + msgs.join(',\n') + '\n \n';
+    result = result + `};`;
+    return result;
+  }
+
   getFormControl(f: Field): string {
     let result = `''`;
-    if (f.required) {
-      result = result + `, Validators.required`;
+    if (f.required && f.regularexpression.length > 0) {
+      result =
+        result +
+        `, Validators.compose([Validators.required, Validators.pattern('${
+          f.regularexpression
+        }')])`;
+    } else {
+      if (f.required) {
+        result = result + `, Validators.required`;
+      }
+      if (f.regularexpression.length > 0) {
+        result = result + `, Validators.pattern('${f.regularexpression}')`;
+      }
     }
     return result;
   }
+
   generateSubmitCode(): string {
     return `
     onSubmit(data) {
-      console.log('do something here');
+      console.log(JSON.stringify(data));
     }
     `;
   }
@@ -163,7 +246,7 @@ export class GeneratorComponent implements OnInit {
     <form [formGroup]='dataform' (ngSubmit)='onSubmit(dataform.value)'>
     <p-panel header='${obj.name}'>
 `;
-  const buttonRow = `           <div class='p-grid'>
+    const buttonRow = `           <div class='p-grid'>
 <div class='p-col-2'></div>
 <div class='p-col-6'>
     <button pButton type='submit' label='Submit' [disabled]='!dataform.valid'></button>
@@ -184,17 +267,28 @@ export class GeneratorComponent implements OnInit {
     return result;
   }
   generateHTMLCodeRow(f: Field): string {
-    const line = `<div class='p-grid'>
+    let line = `
+  <div class='p-grid'>
     <div class='p-col-2'>
-        ${this.getInputLabel(f)}
+      ${this.getInputLabel(f)}
     </div>
-    <div class='p-col-6'>` + this.getInputType(f) + `
-
+    <div class='p-col-6'>
+      ${this.getInputType(f)}
     </div>
-    <div class='p-col-4'>
-        <p-message severity='error' text='${f.label} is required' *ngIf="!dataform.controls['${f.name}'].valid&&dataform.controls['${f.name}'].dirty"></p-message>
-    </div>
-</div>\n`;
+    <div class='p-col-4'>`;
+    if (f.required) {
+      line =
+        line +
+        `<span *ngFor="let validation of account_validation_messages.${f.name}">
+      <p-message severity="error" text="{{validation.message}}" *ngIf="dataform.controls['${
+        f.name
+      }'].hasError(validation.type)"></p-message>
+      </span>`;
+    }
+    line =
+      line +
+      `</div>
+  </div>\n`;
     return line;
   }
 
@@ -210,19 +304,27 @@ export class GeneratorComponent implements OnInit {
     const ty = f.formFieldType;
     switch (ty) {
       case InputTypes.INPUT: {
-        return `<input pInputText class='ui-fluid ui-inputtext' type='text' formControlName='${f.name}' placeholder='${f.placeholder}'/>`;
+        return `<input pInputText class='ui-fluid ui-inputtext' type='text' formControlName='${
+          f.name
+        }' placeholder='${f.placeholder}'/>`;
         break;
       }
       case InputTypes.PASSWORD: {
-        return `<input pInputText class='ui-fluid ui-inputtext' type='password' formControlName='${f.name}' placeholder='${f.placeholder}'/>`;
+        return `<input pInputText class='ui-fluid ui-inputtext' type='password' formControlName='${
+          f.name
+        }' placeholder='${f.placeholder}'/>`;
         break;
       }
       case InputTypes.CHECKBOX: {
-        return `<p-checkbox formControlName='${f.name}' binary='true'></p-checkbox>`;
+        return `<p-checkbox formControlName='${
+          f.name
+        }' binary='true'></p-checkbox>`;
         break;
       }
       case InputTypes.TEXTAREA: {
-        return `<textarea class='ui-fluid ui-inputtext' formControlName='${f.name}' rows='5' cols='30' pInputTextarea autoResize='autoResize'></textarea>`;
+        return `<textarea class='ui-fluid ui-inputtext' formControlName='${
+          f.name
+        }' rows='5' cols='30' pInputTextarea autoResize='autoResize'></textarea>`;
         break;
       }
       case InputTypes.DATE: {
@@ -244,3 +346,4 @@ export class GeneratorComponent implements OnInit {
     `;
   }
 }
+// Validators.pattern('[a-z]([a-z0-9]*[a-z][a-z0-9]*[A-Z]|[a-z0-9]*[A-Z][A-Z0-9]*[a-z])[A-Za-z0-9]*')
