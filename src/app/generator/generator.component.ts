@@ -122,6 +122,19 @@ export class GeneratorComponent implements OnInit {
     }
 
     `);
+    const newFields = [];
+    this.item.fields.forEach(element => {
+      const f1 = new Field();
+      console.log('xx' + JSON.stringify(f1));
+      console.log(element);
+      for (let key in element) {
+        console.log(key + ' ' + element[key]);
+        f1[key] = element[key];
+      }
+      console.log(JSON.stringify(f1));
+      newFields.push(f1);
+    });
+    this.item.fields = newFields;
     // this.item = new ItemObject();
     // this.item.name = 'Person';
     // this.item.label = 'firstData';
@@ -151,7 +164,7 @@ export class GeneratorComponent implements OnInit {
       const line = `  ${f.name}: ${f.type};\n`;
       reslt = reslt + line;
     });
-    console.log(reslt);
+    // console.log(reslt);
     return reslt;
   }
 
@@ -181,7 +194,7 @@ export class GeneratorComponent implements OnInit {
     result = result + fg.join(',\n') + '\n \n';
     result = result + '        });\n}';
     result = result + this.generateSubmitCode();
-    console.log(result);
+    // console.log(result);
     // var re = /[\n]+/g;
     // result = result.replace(re, '<br \>');
     return result;
@@ -261,7 +274,7 @@ export class GeneratorComponent implements OnInit {
       result = result + this.generateHTMLCodeRow(f);
     });
     result = top + result + buttonRow + bottom;
-    console.log('XXXXXXXXXXXXXXXXX: ' + result);
+    // console.log('XXXXXXXXXXXXXXXXX: ' + result);
     // var re = /[\n]/g;
     // result = result.replace(re, '<br \>');
     return result;
@@ -344,6 +357,12 @@ export class GeneratorComponent implements OnInit {
       width: 100%;
     }
     `;
+  }
+
+  copyToClip(id: string) {
+    const el = document.getElementById(id) as HTMLPreElement;
+    el.select()
+    document.execCommand('copy');
   }
 }
 // Validators.pattern('[a-z]([a-z0-9]*[a-z][a-z0-9]*[A-Z]|[a-z0-9]*[A-Z][A-Z0-9]*[a-z])[A-Za-z0-9]*')
