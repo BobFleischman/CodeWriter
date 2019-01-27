@@ -1,7 +1,8 @@
 <p-tabView>
   <p-tabPanel header="JSON">
     <h2>JSON</h2>
-    <pre class="prettyprint lang-json">
+    <button pButton type="button" label="Click" (click)="copyToClip('jsonpre')"></button>
+      <pre id="jsonpre" class="prettyprint lang-json">
      {{item | json}}
     </pre>
   </p-tabPanel>
