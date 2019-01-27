@@ -125,13 +125,9 @@ export class GeneratorComponent implements OnInit {
     const newFields = [];
     this.item.fields.forEach(element => {
       const f1 = new Field();
-      console.log('xx' + JSON.stringify(f1));
-      console.log(element);
       for (let key in element) {
-        console.log(key + ' ' + element[key]);
         f1[key] = element[key];
       }
-      console.log(JSON.stringify(f1));
       newFields.push(f1);
     });
     this.item.fields = newFields;
@@ -361,7 +357,6 @@ export class GeneratorComponent implements OnInit {
 
   copyToClip(id: string) {
     const el = document.getElementById(id) as HTMLPreElement;
-    el.select()
     document.execCommand('copy');
   }
 }

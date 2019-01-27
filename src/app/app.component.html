@@ -1,45 +1,37 @@
+<app-app-generator></app-app-generator>
 <p-tabView>
-  <p-tabPanel header="NPM Installs">
-    <h2>NPM Installs</h2>
-    <pre>
-      npm install primeng --save
-      npm install primeicons --save
-      npm install primeflex --save
-      npm install @angular/animations -- save
-    </pre>
+  <p-tabPanel header="Field List">
+    <app-object-generator [item]="item"></app-object-generator>
   </p-tabPanel>
-  <p-tabPanel header="App Module Imports">
-    <h2>App Module Imports</h2>
-    <pre>
-        import {{ '{' }}BrowserAnimationsModule{{ '}' }} from '@angular/platform-browser/animations';
-        import {{ '{' }}FormsModule, ReactiveFormsModule {{ '}' }} from '@angular/forms';
-        import {{ '{' }}MessageModule {{ '}' }} from 'primeng/message';
-        import {{ '{' }}CheckboxModule{{ '}' }} from 'primeng/checkbox';
-        import {{ '{' }}CalendarModule{{ '}' }} from 'primeng/calendar';
-        import {{ '{' }}PanelModule{{ '}' }} from 'primeng/panel';
-        import {{ '{' }}TabViewModule{{ '}' }} from 'primeng/tabview';
-    </pre>
-    <h2>For Import Section</h2>
-    <pre>
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        FormsModule,
-        MessageModule,
-        CheckboxModule,
-        CalendarModule,
-        PanelModule,
-        TabViewModule
-    </pre>
+  <p-tabPanel header="Generate">
+    <app-components-generator [item]="item"></app-components-generator>
   </p-tabPanel>
-  <p-tabPanel header="angular.json">
-    <pre>
-    "styles": [
-    "node_modules/primeflex/primeflex.css",
-    "node_modules/primeicons/primeicons.css",
-    "node_modules/primeng/resources/themes/nova-light/theme.css",
-    "node_modules/primeng/resources/primeng.min.css",
-    //...
-    ]</pre>
+  <p-tabPanel header="Import Component">
+    <app-form-generator
+      [item]="item"
+      [show]="'imports'"
+    ></app-form-generator>
   </p-tabPanel>
-</p-tabView>
-<app-generator></app-generator>
+  <p-tabPanel header="Component Code">
+    <app-form-generator
+      [item]="item"
+      [show]="'code'"
+    ></app-form-generator>
+  </p-tabPanel>
+  <p-tabPanel header="Component HTML">
+    <app-form-generator
+      [item]="item"
+      [show]="'html'"
+    ></app-form-generator>
+  </p-tabPanel>
+  <p-tabPanel header="Component CSS">
+    <app-form-generator
+      [item]="item"
+      [show]="'css'"
+    ></app-form-generator>
+  </p-tabPanel>
+  <p-tabPanel header="JSON">
+    <figure><pre><code  contenteditable spellcheck="false">{{item | json}}</code></pre></figure>
+    </p-tabPanel>
+  </p-tabView>
+<!-- <app-generator></app-generator> -->

@@ -1,3 +1,52 @@
-<p>
-  app-generator works!
-</p>
+<p-tabView>
+  <p-tabPanel header="NPM Installs">
+    <h2>NPM Installs</h2>
+    <figure>
+      <pre><code contenteditable spellcheck="false">
+      npm install primeng --save
+      npm install primeicons --save
+      npm install primeflex --save
+      npm install @angular/animations -- save
+    </code></pre>
+    </figure>
+  </p-tabPanel>
+  <p-tabPanel header="App Module Imports">
+    <h2>App Module Imports</h2>
+    <figure>
+      <pre><code contenteditable spellcheck="false">
+        import {{ '{' }}BrowserAnimationsModule{{ '}' }} from '@angular/platform-browser/animations';
+        import {{ '{' }}FormsModule, ReactiveFormsModule {{ '}' }} from '@angular/forms';
+        import {{ '{' }}MessageModule {{ '}' }} from 'primeng/message';
+        import {{ '{' }}CheckboxModule{{ '}' }} from 'primeng/checkbox';
+        import {{ '{' }}CalendarModule{{ '}' }} from 'primeng/calendar';
+        import {{ '{' }}PanelModule{{ '}' }} from 'primeng/panel';
+        import {{ '{' }}TabViewModule{{ '}' }} from 'primeng/tabview';
+      </code></pre>
+    </figure>
+    <h2>For Import Section</h2>
+    <figure>
+      <pre><code contenteditable spellcheck="false">
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MessageModule,
+        CheckboxModule,
+        CalendarModule,
+        PanelModule,
+        TabViewModule
+      </code></pre>
+    </figure>
+  </p-tabPanel>
+  <p-tabPanel header="angular.json">
+    <figure>
+      <pre><code contenteditable spellcheck="false">
+    "styles": [
+    "node_modules/primeflex/primeflex.css",
+    "node_modules/primeicons/primeicons.css",
+    "node_modules/primeng/resources/themes/nova-light/theme.css",
+    "node_modules/primeng/resources/primeng.min.css",
+    //...
+    ]    </code></pre>
+    </figure>
+  </p-tabPanel>
+</p-tabView>

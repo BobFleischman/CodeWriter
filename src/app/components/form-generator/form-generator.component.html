@@ -1,0 +1,20 @@
+<span *ngIf="showthis('imports')">
+<h2>Import</h2>
+<figure><pre><code contenteditable spellcheck="false">{{generateImportCode(item)}}</code></pre></figure>
+</span>
+
+<span *ngIf="showthis('code')">
+<h2>Import</h2>
+<figure><pre><code contenteditable spellcheck="false">{{generateComponentCode(item)}}</code></pre></figure>
+</span>
+
+<span *ngIf="showthis('html')">
+<h2>HTML</h2>
+<figure><pre><code contenteditable spellcheck="false">{{generateHTMLCode(item)}}</code></pre></figure>
+</span>
+        
+<span *ngIf="showthis('css')">
+<h2>CSS</h2>
+<figure><pre><code contenteditable spellcheck="false">{{getCSS()}}</code></pre></figure>
+</span>
+        

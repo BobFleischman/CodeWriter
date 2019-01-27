@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Field } from 'src/app/models/field';
+import { ItemObject } from 'src/app/models/item-object';
 
 @Component({
   selector: 'app-app-generator',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-generator.component.css']
 })
 export class AppGeneratorComponent implements OnInit {
+  @Input()
+  item: ItemObject;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

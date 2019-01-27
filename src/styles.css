@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+pre, code {
+    font-family: monospace, monospace;
+  }
+  pre {
+    overflow: auto;
+  }
+  pre > code {
+    display: block;
+    padding: 1rem;
+    word-wrap: normal;
+  }
+  
