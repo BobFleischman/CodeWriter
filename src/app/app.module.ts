@@ -13,10 +13,14 @@ import {CheckboxModule} from 'primeng/checkbox';
 import {CalendarModule} from 'primeng/calendar';
 import {PanelModule} from 'primeng/panel';
 import {TabViewModule} from 'primeng/tabview';
+import {TableModule} from 'primeng/table';
+
 import { AppGeneratorComponent } from './components/app-generator/app-generator.component';
 import { ObjectGeneratorComponent } from './components/object-generator/object-generator.component';
 import { FormGeneratorComponent } from './components/form-generator/form-generator.component';
 import { ComponentsGeneratorComponent } from './components/components-generator/components-generator.component';
+import { FieldListComponent } from './components/field-list/field-list.component';
+import { ListGeneratorComponent } from './components/list-generator/list-generator.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { ComponentsGeneratorComponent } from './components/components-generator/
     AppGeneratorComponent,
     ObjectGeneratorComponent,
     FormGeneratorComponent,
-    ComponentsGeneratorComponent
+    ComponentsGeneratorComponent,
+    FieldListComponent,
+    ListGeneratorComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,8 @@ import { ComponentsGeneratorComponent } from './components/components-generator/
     CheckboxModule,
     CalendarModule,
     PanelModule,
-    TabViewModule
+    TabViewModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,31 +7,27 @@
     <app-components-generator [item]="item"></app-components-generator>
   </p-tabPanel>
   <p-tabPanel header="Import Component">
-    <app-form-generator
-      [item]="item"
-      [show]="'imports'"
-    ></app-form-generator>
+    <app-form-generator [item]="item" [show]="'imports'"></app-form-generator>
   </p-tabPanel>
   <p-tabPanel header="Component Code">
-    <app-form-generator
-      [item]="item"
-      [show]="'code'"
-    ></app-form-generator>
+    <app-form-generator [item]="item" [show]="'code'"></app-form-generator>
   </p-tabPanel>
   <p-tabPanel header="Component HTML">
-    <app-form-generator
-      [item]="item"
-      [show]="'html'"
-    ></app-form-generator>
+    <app-form-generator [item]="item" [show]="'html'"></app-form-generator>
   </p-tabPanel>
   <p-tabPanel header="Component CSS">
-    <app-form-generator
-      [item]="item"
-      [show]="'css'"
-    ></app-form-generator>
+    <app-form-generator [item]="item" [show]="'css'"></app-form-generator>
   </p-tabPanel>
   <p-tabPanel header="JSON">
-    <figure><pre><code  contenteditable spellcheck="false">{{item | json}}</code></pre></figure>
-    </p-tabPanel>
-  </p-tabView>
+    <figure>
+      <pre><code  contenteditable spellcheck="false">{{item | json}}</code></pre>
+    </figure>
+  </p-tabPanel>
+  <p-tabPanel header="table">
+    <app-list-generator [item]="item" [show]="'html'"></app-list-generator>
+  </p-tabPanel>
+  <p-tabPanel header="List">
+    <app-field-list [item]="item"></app-field-list>
+  </p-tabPanel>
+</p-tabView>
 <!-- <app-generator></app-generator> -->

@@ -1,5 +1,6 @@
 import { Types } from './types.enum';
 import { InputTypes } from './input-types.enum';
+import { Validationtemplate } from './validationtemplate';
 
 export class Field {
     name: string = '';
@@ -10,7 +11,7 @@ export class Field {
     required = false;
     regularexpression: string = '';
     regularexpressionmsg: string = '';
-    validations: string = '';
+    validations: Validationtemplate[];
     formFieldType: InputTypes;
 
     showJSON() {
@@ -20,7 +21,7 @@ export class Field {
 
 }
 
-export function fieldconstructor(n: string, t: Types, l: string, v: string, fft: InputTypes) {
+export function fieldconstructor(n: string, t: Types, l: string, v: [], fft: InputTypes) {
     let f = new Field();
     f.name = n;
     f.type = t;

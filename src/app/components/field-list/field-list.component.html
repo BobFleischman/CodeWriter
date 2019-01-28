@@ -1,0 +1,28 @@
+<p-table [value]="item.fields">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Field Name</th>
+      <th>Label for Forms</th>
+      <th>Placeholder Text</th>
+      <th>Required</th>
+      <th>Regular Expression For Validation</th>
+      <th>RegExError Message</th>
+      <th>Data Type</th>
+      <th>Validations</th>
+      <th>Form Field Type</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-field>
+    <tr>
+      <td>{{ field.name }}</td>
+      <td>{{ field.label }}</td>
+      <td>{{ field.placeholder }}</td>
+      <td>{{ field.required }}</td>
+      <td>{{ field.regularexpression }}</td>
+      <td>{{ field.regularexpressionmsg }}</td>
+      <td>{{ field.type }}</td>
+      <td>{{ field.validations |json }}</td>
+      <td>{{ field.formFieldType }}</td>
+    </tr>
+  </ng-template>
+</p-table>

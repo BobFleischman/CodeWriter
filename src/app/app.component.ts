@@ -47,7 +47,7 @@ export class AppComponent {
           "required": false,
           "regularexpression": "",
           "regularexpressionmsg": "",
-          "validations": [],
+          "validations": [{"type":"requried","errMsg":"Placeholder is required", "parameters":""}],
           "type": "string",
           "formFieldType": 0
         },
