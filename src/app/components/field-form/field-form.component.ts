@@ -14,6 +14,7 @@ import { Field } from 'src/app/models/field';
   styleUrls: ["./field-form.component.css"]
 })
 export class FieldFormComponent implements OnInit {
+  
   dataform: FormGroup;
 
   account_validation_messages = {
@@ -33,21 +34,20 @@ export class FieldFormComponent implements OnInit {
   };
 
   @Input()
-  sourceField: Field;
+  _sourceField = new Field();
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit() {
+  get_sourceField(value) {
+    this._sourceField = value;
     this.dataform = this.fb.group({
       name: new FormControl(
-        this.sourceField.name,
+        this._sourceField.name,
         Validators.compose([
           Validators.required,
           Validators.pattern("[a-z_]+$")
         ])
       ),
-      label: new FormControl(this.sourceField.label, Validators.required),
-      placeholder: new FormControl(this.sourceField.placeholder),
+      label: new FormControl(this._sourceField.label, Validators.required),
+      placeholder: new FormControl(this._sourceField.placeholder),
       required: new FormControl("", Validators.required),
       regularexpression: new FormControl(""),
       regularexpressionmsg: new FormControl(""),
@@ -55,6 +55,11 @@ export class FieldFormComponent implements OnInit {
       validations: new FormControl(""),
       formFieldType: new FormControl("", Validators.required)
     });
+  }
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
   }
 
   onSubmit(data) {

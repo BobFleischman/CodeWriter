@@ -14,28 +14,31 @@ export class DataComponent implements OnInit {
   displayDialog = false;
   newField = false;
   cloneField = new Field();
+  selectedField = new Field();
 
   constructor(private itemService: ItemObjectService) {
     this.itemService.getItemObject().subscribe(data => {
       this.item = data;
     });
-   }
+  }
 
   ngOnInit() {
   }
 
   onRowSelect(event) {
+    console.log('In on Row Select ' + JSON.stringify(event.data));
     this.newField = false;
-    this.cloneField = this.cloneFIeld(event.data);
+    this.cloneField = this.cloneThisField(event.data);
+    console.log(JSON.stringify(this.cloneField));
     this.displayDialog = true;
-}
+  }
 
-cloneFIeld(c: Field): Field {
+  cloneThisField(c: Field): Field {
     let field = new Field();
     for (let prop in c) {
-        field[prop] = c[prop];
+      field[prop] = c[prop];
     }
     return field;
-}
+  }
 
 }

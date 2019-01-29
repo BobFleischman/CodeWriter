@@ -1,4 +1,4 @@
-<p-table [value]="item.fields">
+<p-table [value]="item.fields" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
   <ng-template pTemplate="header">
     <tr>
       <th>Field Name</th>

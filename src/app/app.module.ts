@@ -23,7 +23,7 @@ import { FieldListComponent } from './components/field-list/field-list.component
 import { ListGeneratorComponent } from './components/list-generator/list-generator.component';
 import { CodeComponent } from './dataapp/code/code.component';
 import { DataComponent } from './dataapp/data/data.component';
-import { FieldFormComponent } from './field-form/field-form.component';
+import { FieldFormComponent } from './components/field-form/field-form.component';
 
 @NgModule({
   declarations: [
