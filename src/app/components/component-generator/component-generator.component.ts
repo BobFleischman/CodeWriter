@@ -22,8 +22,8 @@ export class ComponentGeneratorComponent implements OnInit {
   }
 
   showthis(type: string) {
-    console.log(`x${type}x + ' ' + x${this.show}x`);
-    console.log(type === this.show);
+    // console.log(`x${type}x + ' ' + x${this.show}x`);
+    // console.log(type === this.show);
     return type === this.show;
   }
 

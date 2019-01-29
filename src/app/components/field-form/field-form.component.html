@@ -1,0 +1,112 @@
+<h2>Object Template</h2>
+    <form [formGroup]='dataform' (ngSubmit)='onSubmit(dataform.value)'>
+    <p-panel header='ObjectTemplate'>
+
+  <div class='p-grid'>
+    <div class='p-col-2'>
+      Field Name *:
+    </div>
+    <div class='p-col-6'>
+      <input pInputText class='ui-fluid ui-inputtext' type='text' formControlName='name' placeholder='Field Name'/>
+    </div>
+    <div class='p-col-4'><span *ngFor="let validation of account_validation_messages.name">
+      <p-message severity="error" text="{{validation.message}}" *ngIf="dataform.controls['name'].hasError(validation.type)"></p-message>
+      </span></div>
+  </div>
+
+  <div class='p-grid'>
+    <div class='p-col-2'>
+      Label for Forms *:
+    </div>
+    <div class='p-col-6'>
+      <input pInputText class='ui-fluid ui-inputtext' type='text' formControlName='label' placeholder=''/>
+    </div>
+    <div class='p-col-4'><span *ngFor="let validation of account_validation_messages.label">
+      <p-message severity="error" text="{{validation.message}}" *ngIf="dataform.controls['label'].hasError(validation.type)"></p-message>
+      </span></div>
+  </div>
+
+  <div class='p-grid'>
+    <div class='p-col-2'>
+      Placeholder Text:
+    </div>
+    <div class='p-col-6'>
+      <input pInputText class='ui-fluid ui-inputtext' type='text' formControlName='placeholder' placeholder='text to user in the placehold attribute'/>
+    </div>
+    <div class='p-col-4'></div>
+  </div>
+
+  <div class='p-grid'>
+    <div class='p-col-2'>
+      Required *:
+    </div>
+    <div class='p-col-6'>
+      <p-checkbox formControlName='required' binary='true'></p-checkbox>
+    </div>
+    <div class='p-col-4'><span *ngFor="let validation of account_validation_messages.required">
+      <p-message severity="error" text="{{validation.message}}" *ngIf="dataform.controls['required'].hasError(validation.type)"></p-message>
+      </span></div>
+  </div>
+
+  <div class='p-grid'>
+    <div class='p-col-2'>
+      Regular Expression For Validation:
+    </div>
+    <div class='p-col-6'>
+      <input pInputText class='ui-fluid ui-inputtext' type='text' formControlName='regularexpression' placeholder='Validation Regular Expression'/>
+    </div>
+    <div class='p-col-4'></div>
+  </div>
+
+  <div class='p-grid'>
+    <div class='p-col-2'>
+      RegExError Message:
+    </div>
+    <div class='p-col-6'>
+      <input pInputText class='ui-fluid ui-inputtext' type='text' formControlName='regularexpressionmsg' placeholder='Regular Expression Error Message'/>
+    </div>
+    <div class='p-col-4'></div>
+  </div>
+
+  <div class='p-grid'>
+    <div class='p-col-2'>
+      Data Type *:
+    </div>
+    <div class='p-col-6'>
+      <input pInputText class='ui-fluid ui-inputtext' type='text' formControlName='type' placeholder='string, Date, number, boolean'/>
+    </div>
+    <div class='p-col-4'><span *ngFor="let validation of account_validation_messages.type">
+      <p-message severity="error" text="{{validation.message}}" *ngIf="dataform.controls['type'].hasError(validation.type)"></p-message>
+      </span></div>
+  </div>
+
+  <div class='p-grid'>
+    <div class='p-col-2'>
+      Validations:
+    </div>
+    <div class='p-col-6'>
+      <input pInputText class='ui-fluid ui-inputtext' type='text' formControlName='validations' placeholder='Validation String (Not currently used)'/>
+    </div>
+    <div class='p-col-4'></div>
+  </div>
+
+  <div class='p-grid'>
+    <div class='p-col-2'>
+      Form Field Type *:
+    </div>
+    <div class='p-col-6'>
+      <input pInputText class='ui-fluid ui-inputtext' type='text' formControlName='formFieldType' placeholder='INPUT, TEXTAREA, DATE, SELECT, PASSWORD, CHECKBOX'/>
+    </div>
+    <div class='p-col-4'><span *ngFor="let validation of account_validation_messages.formFieldType">
+      <p-message severity="error" text="{{validation.message}}" *ngIf="dataform.controls['formFieldType'].hasError(validation.type)"></p-message>
+      </span></div>
+  </div>
+           <div class='p-grid'>
+<div class='p-col-2'></div>
+<div class='p-col-6'>
+    <button pButton type='submit' label='Submit' [disabled]='!dataform.valid'></button>
+</div>
+<div class='p-col-4'></div>
+</div>
+    </p-panel>
+</form>

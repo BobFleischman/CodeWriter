@@ -21,6 +21,9 @@ import { FormGeneratorComponent } from './components/form-generator/form-generat
 import { ComponentsGeneratorComponent } from './components/components-generator/components-generator.component';
 import { FieldListComponent } from './components/field-list/field-list.component';
 import { ListGeneratorComponent } from './components/list-generator/list-generator.component';
+import { CodeComponent } from './dataapp/code/code.component';
+import { DataComponent } from './dataapp/data/data.component';
+import { FieldFormComponent } from './field-form/field-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { ListGeneratorComponent } from './components/list-generator/list-generat
     FormGeneratorComponent,
     ComponentsGeneratorComponent,
     FieldListComponent,
-    ListGeneratorComponent
+    ListGeneratorComponent,
+    CodeComponent,
+    DataComponent,
+    FieldFormComponent
   ],
   imports: [
     BrowserModule,
