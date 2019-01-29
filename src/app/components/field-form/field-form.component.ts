@@ -6,6 +6,7 @@ import {
   FormControl
 } from "@angular/forms";
 import { Field } from 'src/app/models/field';
+import { InputTypes } from 'src/app/models/input-types.enum';
 
 
 @Component({
@@ -48,12 +49,12 @@ export class FieldFormComponent implements OnInit {
       ),
       label: new FormControl(this._sourceField.label, Validators.required),
       placeholder: new FormControl(this._sourceField.placeholder),
-      required: new FormControl("", Validators.required),
-      regularexpression: new FormControl(""),
-      regularexpressionmsg: new FormControl(""),
-      type: new FormControl("", Validators.required),
-      validations: new FormControl(""),
-      formFieldType: new FormControl("", Validators.required)
+      required: new FormControl(this._sourceField.required, Validators.required),
+      regularexpression: new FormControl(this._sourceField.regularexpression),
+      regularexpressionmsg: new FormControl(this._sourceField.regularexpressionmsg),
+      type: new FormControl(this._sourceField.type, Validators.required),
+      validations: new FormControl(this._sourceField.validations),
+      formFieldType: new FormControl(InputTypes[this._sourceField.formFieldType], Validators.required)
     });
   }
 
