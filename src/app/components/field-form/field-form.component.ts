@@ -32,11 +32,11 @@ export class FieldFormComponent implements OnInit {
       { type: "required", message: "Form Field Type is required" }
     ]
   };
-
-  @Input()
   _sourceField = new Field();
 
-  get_sourceField(value) {
+  @Input('sourceField')
+  set sourceField(value) {
+    console.log("in set");
     this._sourceField = value;
     this.dataform = this.fb.group({
       name: new FormControl(
@@ -60,6 +60,23 @@ export class FieldFormComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
+    this.dataform = this.fb.group({
+      name: new FormControl(
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("[a-z_]+$")
+        ])
+      ),
+      label: new FormControl("", Validators.required),
+      placeholder: new FormControl(""),
+      required: new FormControl("", Validators.required),
+      regularexpression: new FormControl(""),
+      regularexpressionmsg: new FormControl(""),
+      type: new FormControl("", Validators.required),
+      validations: new FormControl(""),
+      formFieldType: new FormControl("", Validators.required)
+    });
   }
 
   onSubmit(data) {
