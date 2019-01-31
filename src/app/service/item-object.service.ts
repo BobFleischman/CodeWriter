@@ -129,6 +129,48 @@ export class ItemObjectService {
       "name": "ObjectTemplate",
       "label": "Object Template"
     }`);
+    this.item = JSON.parse(`{
+      "fields": [
+        {
+          "name": "workstatus",
+          "label": "Work Status",
+          "mask": "",
+          "placeholder": "Field Name",
+          "required": true,
+          "regularexpression": "",
+          "regularexpressionmsg": "",
+          "validations": [],
+          "type": "string",
+          "formFieldType": 0
+        },
+        {
+          "name": "webstatus",
+          "label": "Web Status",
+          "mask": "",
+          "placeholder": "",
+          "required": true,
+          "regularexpression": "",
+          "regularexpressionmsg": "",
+          "validations": [],
+          "type": "string",
+          "formFieldType": 0
+        },
+        {
+          "name": "count",
+          "label": "Count",
+          "mask": "",
+          "placeholder": "",
+          "required": false,
+          "regularexpression": "",
+          "regularexpressionmsg": "",
+          "validations": [],
+          "type": "number",
+          "formFieldType": 0
+        }
+      ],
+      "name": "AttyStats",
+      "label": "Attorney Stats"
+    }`);
     const newFields = [];
     this.item.fields.forEach(element => {
       const f1 = new Field();
