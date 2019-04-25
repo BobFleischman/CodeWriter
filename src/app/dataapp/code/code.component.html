@@ -1,10 +1,10 @@
 <app-app-generator></app-app-generator>
 <p-tabView>
-  <p-tabPanel header="Field List">
-    <app-object-generator [item]="item"></app-object-generator>
-  </p-tabPanel>
   <p-tabPanel header="Generate">
     <app-components-generator [item]="item"></app-components-generator>
+  </p-tabPanel>
+  <p-tabPanel header="Field List">
+    <app-object-generator [item]="item"></app-object-generator>
   </p-tabPanel>
   <p-tabPanel header="Import Component">
     <app-form-generator [item]="item" [show]="'imports'"></app-form-generator>

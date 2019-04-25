@@ -9,6 +9,15 @@
       npm install @angular/animations -- save
     </code></pre>
     </figure>
+    <h2>NPM Installs If making a WAR file</h2>
+    <figure>
+      <pre><code contenteditable spellcheck="false">
+		npm install gulp -D
+		npm install gulp-cli -D
+		npm install gulp-war -D
+		npm install gulp-zip -D
+    </code></pre>
+    </figure>
   </p-tabPanel>
   <p-tabPanel header="App Module Imports">
     <h2>App Module Imports</h2>
@@ -22,6 +31,8 @@
         import {{ '{' }}PanelModule{{ '}' }} from 'primeng/panel';
         import {{ '{' }}TabViewModule{{ '}' }} from 'primeng/tabview';
         import {{ '{' }}TableModule{{ '}' }} from 'primeng/table';
+		import {{ '{' }}DialogModule{{ '}' }} from 'primeng/dialog';
+
       </code></pre>
     </figure>
     <h2>For Import Section</h2>
@@ -35,7 +46,8 @@
         CalendarModule,
         PanelModule,
         TabViewModule,
-        TableModule
+        TableModule,
+		DialogModule
       </code></pre>
     </figure>
   </p-tabPanel>
