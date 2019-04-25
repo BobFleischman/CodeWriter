@@ -25,30 +25,38 @@
       <pre><code contenteditable spellcheck="false">
         import {{ '{' }}BrowserAnimationsModule{{ '}' }} from '@angular/platform-browser/animations';
         import {{ '{' }}FormsModule, ReactiveFormsModule {{ '}' }} from '@angular/forms';
-        import {{ '{' }}MessageModule {{ '}' }} from 'primeng/message';
-        import {{ '{' }}CheckboxModule{{ '}' }} from 'primeng/checkbox';
-        import {{ '{' }}CalendarModule{{ '}' }} from 'primeng/calendar';
-        import {{ '{' }}PanelModule{{ '}' }} from 'primeng/panel';
-        import {{ '{' }}TabViewModule{{ '}' }} from 'primeng/tabview';
-        import {{ '{' }}TableModule{{ '}' }} from 'primeng/table';
-		import {{ '{' }}DialogModule{{ '}' }} from 'primeng/dialog';
+        import {{ '{' }}HttpClientModule, HttpClientJsonpModule {{ '}' }} from '@angular/common/http';
+        import {{ '{' }}AppRoutingModule{{ '}' }} from './app-routing.module';
 
-      </code></pre>
+        import {{ '{' }}MessageModule{{ '}' }}from 'primeng/message';
+        import {{ '{' }}CheckboxModule{{ '}' }}from 'primeng/checkbox';
+        import {{ '{' }}CalendarModule{{ '}' }}from 'primeng/calendar';
+        import {{ '{' }}PanelModule{{ '}' }}from 'primeng/panel';
+        import {{ '{' }}TabViewModule{{ '}' }}from 'primeng/tabview';
+        import {{ '{' }}TableModule{{ '}' }}from 'primeng/table';
+        import {{ '{' }}DialogModule{{ '}' }}from 'primeng/dialog';
+        import {{ '{' }}AutoCompleteModule{{ '}' }}from 'primeng/autocomplete';
+              </code></pre>
     </figure>
     <h2>For Import Section</h2>
     <figure>
       <pre><code contenteditable spellcheck="false">
+        BrowserModule,
         BrowserAnimationsModule,
-        ReactiveFormsModule,
+        HttpClientModule,
+        HttpClientJsonpModule,
+        AppRoutingModule,
         FormsModule,
+        ReactiveFormsModule,
         MessageModule,
         CheckboxModule,
         CalendarModule,
         PanelModule,
         TabViewModule,
         TableModule,
-		DialogModule
-      </code></pre>
+        DialogModule,
+        AutoCompleteModule
+          </code></pre>
     </figure>
   </p-tabPanel>
   <p-tabPanel header="angular.json">
