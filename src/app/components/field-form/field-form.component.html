@@ -1,5 +1,6 @@
 <h2>Object Template</h2>
-<form [formGroup]='dataform' (ngSubmit)='onSubmit(dataform.value)'>
+<!-- (ngSubmit)='onSubmit(dataform.value)' -->
+<form [formGroup]='dataform' >
   <p-panel header='ObjectTemplate'>
 
     <div class='p-grid'>
@@ -104,7 +105,8 @@
     <div class='p-grid'>
       <div class='p-col-2'></div>
       <div class='p-col-6'>
-        <button pButton type='submit' label='Submit' [disabled]='!dataform.valid'></button>
+        <button pButton type='submit' label='Submit' [disabled]='!dataform.valid'  (click)="onSubmit()"></button>
+        <button pButton [disabled]='!dataform.valid' label='Delete' (click)="deleteThis()"></button>
       </div>
       <div class='p-col-4'></div>
     </div>

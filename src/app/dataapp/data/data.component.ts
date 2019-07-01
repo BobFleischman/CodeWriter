@@ -29,7 +29,8 @@ export class DataComponent implements OnInit {
     console.log('In on Row Select ' + JSON.stringify(event.data));
     this.newField = false;
     this.cloneField = this.cloneThisField(event.data);
-    console.log(JSON.stringify(this.cloneField));
+    let index = this.item.fields.indexOf(this.cloneField);
+    console.log(index);
     this.displayDialog = true;
   }
 
@@ -39,6 +40,24 @@ export class DataComponent implements OnInit {
       field[prop] = c[prop];
     }
     return field;
+  }
+
+
+  addNewOne() {
+    console.log("Add New One");
+    this.item.fields.push(new Field());
+  }
+
+  updateForm(data) {
+    console.log("Got " + JSON.stringify(data));
+      let index = this.item.fields.indexOf(data);
+    console.log("Index " + index);
+    this.item.fields[index] = data;
+    this.cloneField = null;
+  }
+
+  deleteThis(data) {
+    console.log("Delete " + JSON.stringify(data));
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import {
   Validators,
   FormGroup,
@@ -34,6 +34,9 @@ export class FieldFormComponent implements OnInit {
     ]
   };
   _sourceField = new Field();
+
+  @Output() update: EventEmitter<Field> = new EventEmitter();
+  @Output() delete: EventEmitter<Field> = new EventEmitter();
 
   @Input('sourceField')
   set sourceField(value) {
@@ -81,6 +84,20 @@ export class FieldFormComponent implements OnInit {
   }
 
   onSubmit(data) {
-    console.log(JSON.stringify(data));
+    console.log("In ON submit " +  JSON.stringify(data));
+    this.update.emit(this._sourceField);
   }
+
+  submitChange() {
+    // console.log("Changes");
+    // let index = this.item.fields.indexOf(this.cloneField);
+    // console.log("Index " + index);
+    // this.item.fields[index] = this.cloneField;
+    // this.cloneField = null;
+  }
+  
+  deleteThis() {
+    this.delete.emit(this._sourceField);
+  }
+
 }
