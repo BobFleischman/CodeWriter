@@ -24,6 +24,7 @@ import { ListGeneratorComponent } from './components/list-generator/list-generat
 import { CodeComponent } from './dataapp/code/code.component';
 import { DataComponent } from './dataapp/data/data.component';
 import { FieldFormComponent } from './components/field-form/field-form.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FieldFormComponent } from './components/field-form/field-form.component
     ListGeneratorComponent,
     CodeComponent,
     DataComponent,
-    FieldFormComponent
+    FieldFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
