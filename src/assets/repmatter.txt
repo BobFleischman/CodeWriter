@@ -1,0 +1,66 @@
+{
+  "fields": [
+    {
+      "name": "grouping",
+      "label": "Group Text",
+      "mask": "",
+      "placeholder": "",
+      "required": true,
+      "regularexpression": "",
+      "regularexpressionmsg": "",
+      "type": "string",
+      "validations": null,
+      "formFieldType": "INPUT"
+    },
+    {
+      "name": "bodytext",
+      "label": "Body Text",
+      "mask": "",
+      "placeholder": "",
+      "required": true,
+      "regularexpression": "",
+      "regularexpressionmsg": "",
+      "type": "string",
+      "validations": null,
+      "formFieldType": "INPUT"
+    },
+    {
+      "name": "repmatterid",
+      "label": "RepMatterId",
+      "mask": "",
+      "placeholder": "",
+      "required": false,
+      "regularexpression": "",
+      "regularexpressionmsg": "",
+      "type": "number",
+      "validations": null,
+      "formFieldType": "INPUT"
+    },
+    {
+      "name": "entitycatalog",
+      "label": "Catalog Id",
+      "mask": "",
+      "placeholder": "",
+      "required": true,
+      "regularexpression": "",
+      "regularexpressionmsg": "",
+      "type": "number",
+      "validations": null,
+      "formFieldType": "INPUT"
+    },
+    {
+      "name": "position",
+      "label": "Position",
+      "mask": "",
+      "placeholder": "",
+      "required": true,
+      "regularexpression": "",
+      "regularexpressionmsg": "",
+      "type": "number",
+      "validations": null,
+      "formFieldType": "INPUT"
+    }
+  ],
+  "name": "RepMatterText",
+  "label": "Rep Matter Text"
+}

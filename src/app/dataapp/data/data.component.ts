@@ -9,7 +9,6 @@ import { Field } from 'src/app/models/field';
   styleUrls: ['./data.component.css']
 })
 export class DataComponent implements OnInit {
-
   item: ItemObject;
   displayDialog = false;
   newField = false;
@@ -22,11 +21,10 @@ export class DataComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onRowSelect(event) {
-    console.log('In on Row Select ' + JSON.stringify(event.data));
+    console.log('In on Row Select ' + JSON.stringify(event));
     this.newField = false;
     this.cloneField = this.cloneThisField(event.data);
     let index = this.item.fields.indexOf(this.cloneField);
@@ -42,22 +40,32 @@ export class DataComponent implements OnInit {
     return field;
   }
 
-
   addNewOne() {
-    console.log("Add New One");
+    console.log('Add New One');
     this.item.fields.push(new Field());
   }
 
-  updateForm(data) {
-    console.log("Got " + JSON.stringify(data));
-      let index = this.item.fields.indexOf(data);
-    console.log("Index " + index);
-    this.item.fields[index] = data;
-    this.cloneField = null;
+  updateForm(data: Field) {
+    const newItem: ItemObject = new ItemObject();
+    newItem.fields = [...this.item.fields];
+    if (this.newField) {
+      newItem.fields.push(data);
+    } else {
+      const index = this.item.fields.indexOf(this.selectedField);
+      this.item.fields[index] = data;
+      newItem.fields[index] = data;
+    }
+    this.cloneField = new Field();
+    this.itemService.updateItem(this.item);
   }
 
   deleteThis(data) {
-    console.log("Delete " + JSON.stringify(data));
+    const index = this.item.fields.indexOf(this.selectedField);
+    this.item.fields = this.item.fields.filter((val, i) => i !== index);
+    this.itemService.updateItem(this.item);
   }
 
+  displayJSON() {
+    console.log(JSON.stringify(this.item));
+  }
 }

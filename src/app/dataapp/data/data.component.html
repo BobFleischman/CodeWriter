@@ -10,7 +10,7 @@
     </div>
   </div>
 
-<p-table [value]="item.fields" selectionMode="single" [(selection)]="selectedField" 
+<p-table [value]="item.fields" selectionMode="single" [(selection)]="selectedField"
 (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
     <ng-template pTemplate="header">
       <tr>
@@ -39,5 +39,6 @@
       </tr>
     </ng-template>
   </p-table>
-  <button (click)="addNewOne()">Add New One</button>
+  <button (click)="addNewOne()">Add New One</button><br>
+  <button (click)="displayJSON()">Display Results</button>
 <app-field-form [(sourceField)] = "cloneField" (update)="updateForm($event)" (delete)="deleteThis($event)"></app-field-form>

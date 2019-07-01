@@ -14,9 +14,9 @@ export class Field {
     validations: Validationtemplate[];
     formFieldType: InputTypes;
 
-    showJSON() {
-        console.log(JSON.stringify(this));
-    }
+    // showJSON() {
+    //     console.log(JSON.stringify(this));
+    // }
 
 
 }

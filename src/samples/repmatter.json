@@ -1,0 +1,39 @@
+repmatter = {
+  "fields": [
+    {
+      "name": "grouping",
+      "label": "Group Text",
+      "placeholder": "",
+      "required": true,
+      "regularexpression": "",
+      "regularexpressionmsg": "",
+      "type": "string",
+      "validations": null,
+      "formFieldType": 0
+    },
+    {
+      "name": "bodytext",
+      "label": "Body Text",
+      "placeholder": "",
+      "required": true,
+      "regularexpression": "",
+      "regularexpressionmsg": "",
+      "type": "string",
+      "validations": null,
+      "formFieldType": 0
+    },
+    {
+      "name": "repmatterid",
+      "label": "RepMatterId",
+      "placeholder": "",
+      "required": false,
+      "regularexpression": "",
+      "regularexpressionmsg": "",
+      "type": "number",
+      "validations": null,
+      "formFieldType": 0
+    }
+  ],
+  "name": "AttyStats",
+  "label": "Attorney Stats"
+}

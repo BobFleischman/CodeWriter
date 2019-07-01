@@ -15,7 +15,7 @@ import { InputTypes } from 'src/app/models/input-types.enum';
   styleUrls: ["./field-form.component.css"]
 })
 export class FieldFormComponent implements OnInit {
-  
+
   dataform: FormGroup;
 
   account_validation_messages = {
@@ -40,7 +40,6 @@ export class FieldFormComponent implements OnInit {
 
   @Input('sourceField')
   set sourceField(value) {
-    console.log("in set");
     this._sourceField = value;
     this.dataform = this.fb.group({
       name: new FormControl(
@@ -84,8 +83,9 @@ export class FieldFormComponent implements OnInit {
   }
 
   onSubmit(data) {
-    console.log("In ON submit " +  JSON.stringify(data));
-    this.update.emit(this._sourceField);
+    console.log("In ON submit " +  JSON.stringify(this._sourceField));
+    console.log("dataForm: " + JSON.stringify(this.dataform.value));
+    this.update.emit(this.dataform.value);
   }
 
   submitChange() {
@@ -95,7 +95,7 @@ export class FieldFormComponent implements OnInit {
     // this.item.fields[index] = this.cloneField;
     // this.cloneField = null;
   }
-  
+
   deleteThis() {
     this.delete.emit(this._sourceField);
   }
